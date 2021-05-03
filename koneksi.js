@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+const Sequelize = require('sequelize');
 
 // Create database connection
 const conn = mysql.createConnection({
@@ -7,6 +8,11 @@ const conn = mysql.createConnection({
     password:'',
     database:'db_noderestapi'
 })
+
+const sequelize = new Sequelize('db_noderestapi', 'root', '', {
+    host: 'localhost',
+    dialect: 'mysql'
+});
 
 conn.connect((err)=>{
     if(err) throw err;

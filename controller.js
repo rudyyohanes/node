@@ -30,3 +30,20 @@ exports.displaybyid = function (req, res) {
             }
         });
 };
+
+// Insert data to table favorite_music
+exports.insertfavorite = function (req, res) {
+    var id = req.body.id;
+    var title = req.body.title;
+    var user_id = req.body.user_id;
+
+    connection.query('INSERT INTO favorite_movies (id, title, user_id) VALUES(?,?,?)', 
+        [id, title, user_id],
+        function (error, rows, fields) {
+            if (error) {
+                connection.log(error);
+            } else {
+                response.ok("Add data success!", res)
+            }
+        });
+};

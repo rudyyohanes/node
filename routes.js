@@ -11,4 +11,7 @@ module.exports = function (app) {
 
     app.route('/view/:id')
         .get(myjson.displaybyid);
+        
+    app.route('/add')
+        .post(myjson.insertfavorite);
 };
