@@ -1,0 +1,23 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "RESTapi with node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudyyohanes/node.git"
+  },
+  "keywords": [
+    "rest",
+    "api"
+  ],
+  "author": "rudyyohanes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rudyyohanes/node/issues"
+  },
+  "homepage": "https://github.com/rudyyohanes/node#readme"
+}
