@@ -1,5 +1,33 @@
 'use strict';
 
+const axios = require('axios');
+
+var api = 'http://www.omdbapi.com/?';
+var searchtitle = 't=';
+var title = 'Star Trek';
+var apikey = '&apikey=f6eeadf6';
+var url = api + searchtitle + title + apikey;
+
+async function GetRequest(){
+    const Poster = await axios.get(url).then(response => {return response.data.Poster;})
+    .catch(function(error){
+        console.log(error);
+    });
+
+    var jsonobject = {String: Poster};
+
+    return jsonobject;
+}
+
+GetRequest().then(result => {console.log( result )})
+
+// axios.get(url).then(function(response){
+//     console.log(response);
+// })
+// .catch(function(error){
+//     console.log(error);
+// })
+
 var response = require('./res');
 var connection = require('./koneksi');
 
