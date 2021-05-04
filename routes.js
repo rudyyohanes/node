@@ -9,9 +9,9 @@ module.exports = function (app) {
     app.route('/view')
         .get(myjson.displayall);
 
-    app.route('/view/:id')
-        .get(myjson.displaybyid);
-        
-    app.route('/add')
+    app.route('/movies/:title')
+        .get(myjson.returnposterurl);
+
+    app.route('/movies/favorite')
         .post(myjson.insertfavorite);
 };

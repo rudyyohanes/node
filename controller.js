@@ -1,26 +1,26 @@
 'use strict';
 
 const axios = require('axios');
-
 var api = 'http://www.omdbapi.com/?';
 var searchtitle = 't=';
-var title = 'Star Trek';
+var title = 'Rogue One: A Star Wars Story';
 var apikey = '&apikey=f6eeadf6';
 var url = api + searchtitle + title + apikey;
+
+// Function to get poster url
 
 async function GetRequest(){
     const Poster = await axios.get(url).then(response => {return response.data.Poster;})
     .catch(function(error){
         console.log(error);
     });
-
-    var jsonobject = {String: Poster};
-
+    let jsonobject = (Poster);
     return jsonobject;
 }
 
-GetRequest().then(result => {console.log( result )})
+GetRequest().then(result => {console.log( result )});
 
+// This function to get all metadata
 // axios.get(url).then(function(response){
 //     console.log(response);
 // })
@@ -35,9 +35,9 @@ exports.index = function (req, res) {
     response.ok("This REST API application is working properly.", res);
 };
 
-// View all data from table user
+// View all data from table favorite_movies
 exports.displayall = function (req, res) {
-    connection.query('SELECT * FROM user', function (error, rows, fields) {
+    connection.query('SELECT * FROM favorite_movies', function (error, rows, fields) {
         if (error) {
             connection.log(error);
         } else {
@@ -46,10 +46,10 @@ exports.displayall = function (req, res) {
     });
 };
 
-// View data from table user by id
-exports.displaybyid = function (req, res) {
+// View url 
+exports.returnposterurl = function (req, res) {
     let id = req.params.id;
-    connection.query('SELECT * FROM user WHERE user_id = ?', [id],
+    connection.query('SELECT * FROM favorite_movies WHERE user_id = ?', [id],
         function (error, rows, fields) {
             if (error) {
                 connection.log(error);
