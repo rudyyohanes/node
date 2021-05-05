@@ -18,6 +18,8 @@ async function GetRequest(){
     return jsonobject;
 }
 
+console.log('Movie title: ' + title);
+
 GetRequest().then(result => {console.log( result )});
 
 // This function to get all metadata
